@@ -1,0 +1,538 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CNC 2D图纸自动报价-48分 · 完整证据包</title><style>body{margin:0;font-family:-apple-system,"PingFang SC","Noto Sans SC",sans-serif;background:#0f1419;color:#e7ecf3;line-height:1.65}
+.top{position:sticky;top:0;background:#0f1419ee;border-bottom:1px solid #2a3548;padding:8px 16px}.top a{color:#9aa8bc;margin-right:10px;font-size:13px;text-decoration:none}
+.wrap{max-width:980px;margin:0 auto;padding:20px}a{color:#5b9fd4}table{border-collapse:collapse;display:block;overflow-x:auto}td,th{border:1px solid #2a3548;padding:4px 8px}
+pre,code{background:#121a26;white-space:pre-wrap}h2.sec{border-top:2px solid #5b9fd4;padding-top:16px;margin-top:40px}</style></head><body><div class="top"><a href="#report">完整报告</a><a href="#sop-criteria">sop-criteria.md</a><a href="#sop-v3">sop-v3.md</a><a href="#files">证据文件</a></div><div class="wrap"><section id="report"><h2 class="sec">完整报告</h2><p>这个产品帮助海外中小机加工厂的老板和报价员，在客户只提供 2D 工程图询价时，解决读图、估算工序成本并生成可复核报价耗时的问题。</p>
+<h1 id="cnc-2d-seo">CNC 2D图纸自动报价：先验证付费，暂不优先做 SEO</h1>
+<p>研究日：2026-10-24。事实、厂商声明、用户自述与本报告假设分开；“未找到”不代表不存在。只判断软件远程成交，不接机加工订单。</p>
+<h2 id="_1">一分钟决策</h2>
+<h3 id="_2">钉死的研究对象</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>本次固定范围</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>谁</td>
+<td>接外部订单的中小 CNC（计算机数控加工）工厂老板、报价员；先验证收到较多纯图纸询价、已有本厂费率的用户</td>
+</tr>
+<tr>
+<td>场景</td>
+<td>收到 RFQ（客户询价），只有 2D 图纸，报价员还兼做生产或编程</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>PDF/DWG 工程图＋数量、材料/表面处理要求＋本厂机床、小时费率、成本及加价规则；缺项须追问。<strong>不要求 STEP 等 3D 模型</strong></td>
+</tr>
+<tr>
+<td>输出</td>
+<td>可逐项修改的材料、装夹、编程、加工、外协和检验成本；数量阶梯价；人工确认后导出对客报价 PDF</td>
+</tr>
+<tr>
+<td>单一任务</td>
+<td><strong>把一份没有 3D 模型的机加工图纸询价，变成报价员能核对并发出的报价。</strong>人工确认属于该任务，不承诺无人审核定价</td>
+</tr>
+<tr>
+<td>初始交付边界【建议】</td>
+<td>先验证尺寸齐全的常规车削/三轴铣削 PDF；DWG 先由用户导出 PDF。原生 DWG 能力、复杂件覆盖率均待测，不宣传已经支持</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_3">首屏三维决策</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>当前判断</th>
+<th>最关键依据与不足</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>有没有相关需求</td>
+<td><strong>有；纯 2D 证据仍薄</strong></td>
+<td>近期从业者明确抱怨工具要求 STEP、收到的却多是图纸；但只是单帖评论，不能代表整个行业。<a href="https://www.reddit.com/r/Machinists/comments/1vzvjh8/hows_your_experience_with_automated_quoting_tools/">原帖</a></td>
+</tr>
+<tr>
+<td>切口能否独立收费</td>
+<td><strong>待验证，尚未证明成熟 PMF（产品与市场匹配）</strong></td>
+<td>CloudNC、QuotedPart、QuoteBuddy 已单独标价并声明支持图纸报价；<strong>该输入场景的实际付费客户、续费和可靠性未找到</strong>。标价证明有供给，不等于成交。<a href="https://www.cloudnc.com/news-room/cloudnc-launches-quote-agent-to-help-machine-shops-win-more-work">CloudNC 公告</a>、<a href="https://quotedpart.com/pricing">QuotedPart 定价</a>、<a href="https://quotebuddy.therness.com/en/pricing">QuoteBuddy 定价</a></td>
+</tr>
+<tr>
+<td>是否优先靠 SEO</td>
+<td><strong>暂不优先</strong></td>
+<td>主任务候选词没有返回正数的记录；日本搜索量全部未返回，不能判断为无需求。国别 SERP 样本均不足完整前十，部分明显跑题。通用报价词的量不归本切口。<a href="https://api.pxany.com/v1/keyword-volumes">搜索量供应商入口</a>，原始回包快照与最终审计见证据包</td>
+</tr>
+</tbody>
+</table>
+<p><strong>行动建议：不进入正式开发/SEO 优先队列，只做有上限的小额付费验证。</strong>阻力是尚未证实的同切口付费、专业报价责任和获客量，不是“已经有竞品”。最能改变决定的证据是：用户在相同图纸上，相比现有工具仍能净省时，并愿意实际付费、复用及续费。</p>
+<p><strong>下一步【拟议，未执行】</strong>：接触 10 家符合范围的工厂，争取 5 家提供脱敏历史图纸与实际成本；同题比较现有解法，再测试至少 3 家支付首月 $99。通过后观察真实新询价使用，到下一计费周期再看续费。数字均为本报告验证门槛，不是市场数据；完整停止条件见后文。</p>
+<h3 id="_4">五项核实卡</h3>
+<p>来源材料有既有研究，但<strong>专员五项原分未找到</strong>，不能声称已通过 SOP 的初筛入口。按用户指定材料继续核验，缺口保留；不补造原分。总分及折算放附录。</p>
+<table>
+<thead>
+<tr>
+<th>项目（各 1–5）</th>
+<th>专员原分</th>
+<th style="text-align: right;">核实后分【研究判断】</th>
+<th>关键证据/含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>需求真实</td>
+<td>未找到</td>
+<td style="text-align: right;">4</td>
+<td>有从业者图纸兼容抱怨，也有不需要自动化的反证；非全量调查。<a href="https://www.reddit.com/r/Machinists/comments/1vzvjh8/hows_your_experience_with_automated_quoting_tools/">近期讨论</a></td>
+</tr>
+<tr>
+<td>付费意愿</td>
+<td>未找到</td>
+<td style="text-align: right;">2</td>
+<td>同任务有明确标价，尚未取得实际付费及留存证据；不借用 ERP/3D 报价客户证明纯 2D PMF。<a href="https://quotedpart.com/pricing">QuotedPart</a>、<a href="https://quotebuddy.therness.com/en/pricing">QuoteBuddy</a></td>
+</tr>
+<tr>
+<td>好服务</td>
+<td>未找到</td>
+<td style="text-align: right;">2</td>
+<td>用户专业，错误工艺、漏外协和漏检验会影响利润；直接竞品仍要求报价员确认。<a href="https://www.cloudnc.com/news-room/cloudnc-launches-quote-agent-to-help-machine-shops-win-more-work">CloudNC 工作流</a></td>
+</tr>
+<tr>
+<td>小团队做得动</td>
+<td>未找到</td>
+<td style="text-align: right;">2</td>
+<td>读图能力可采购，但工艺、费率校准与异常处理仍需领域能力；无本团队实测交付证据。<a href="https://www.werk24.io/pricing">Werk24 能力及价格</a>、<a href="https://quotebuddy.therness.com/en/solutions/turning-milling-quotes">QuoteBuddy 工艺明细</a></td>
+</tr>
+<tr>
+<td>形态简单</td>
+<td>未找到</td>
+<td style="text-align: right;">2</td>
+<td>入口可做上传表单，后台涉及毛坯、装夹、批量分摊、外协及人工锁定，不能按普通表单工具估工期。<a href="https://quotebuddy.therness.com/en/solutions/contract-manufacturers">QuoteBuddy</a></td>
+</tr>
+</tbody>
+</table>
+<p>按筛选标准，付费项低于 3，<strong>本轮不推荐正式立项</strong>；“未证明有人付费”不写成“无人付费”。</p>
+<h2 id="_5">判断依据</h2>
+<h3 id="_6">需求存在，但用户要的是净省时和可信报价</h3>
+<p><strong>最接近本切口的证据，是图纸输入不被现有工具很好承接；最强反证，是简单件原本很快、复杂件又难放心交给自动工具。</strong></p>
+<table>
+<thead>
+<tr>
+<th>时间、用户和热度</th>
+<th>原话/核实结果</th>
+<th>抱怨哪一步；现用工具及付费</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2026-08-27；r/Machinists，Hour-Ad-2206；主帖 +2</td>
+<td>“we are currently struggling to achieve the quoting time targets.” 自述约 10 名机加工/编程人员，3 人兼做报价</td>
+<td>回复说明已用 Excel，仍因工作量不足以完成；正在比较 Toolpath、Uptool、CloudNC、Spanflug，询问约 $400/月是否值得。<strong>这是询价意愿，不是已付款</strong>。<a href="https://www.reddit.com/r/Machinists/comments/1vzvjh8/hows_your_experience_with_automated_quoting_tools/">原帖</a></td>
+</tr>
+<tr>
+<td>同帖，2026-08-27；一位评论者 +1</td>
+<td>“most of the quote stuff I get is drawings.” 同段抱怨很多工具要求 STEP</td>
+<td>直接支持“没有 3D 模型也要报价”的兼容问题；未证明其需要原生 DWG，也未披露为此支付多少钱。该评论关于数据被送往中国的指控<strong>未核实，不采作事实</strong>。<a href="https://www.reddit.com/r/Machinists/comments/1vzvjh8/hows_your_experience_with_automated_quoting_tools/">原帖</a></td>
+</tr>
+<tr>
+<td>同帖，2026-08-27；反对者 +1</td>
+<td>“Either part is simple and you can quote it in less than 5 minutes”</td>
+<td>评论认为复杂件自动报价会错；说明不能按所有小厂都能节约大量工时定价。这是个案，非行业均值。<a href="https://www.reddit.com/r/Machinists/comments/1vzvjh8/hows_your_experience_with_automated_quoting_tools/">原帖</a></td>
+</tr>
+<tr>
+<td>同一发帖者，2026-10-13 回复 +1</td>
+<td>自述正在用 Lehrling AI，喜欢可改报价工作流，并提到两个月试用</td>
+<td>支持定制工作流偏好；处于试用，不计首付、更不计续费。<a href="https://www.reddit.com/r/Machinists/comments/1vzvjh8/hows_your_experience_with_automated_quoting_tools/">回复所在原帖</a></td>
+</tr>
+</tbody>
+</table>
+<p>同日 r/CNC 的 +7 主帖是同一求助的跨版发布，<strong>去重为一个事件</strong>，不是两家工厂。<a href="https://www.reddit.com/r/CNC/comments/1vznqot/hows_your_experience_with_automated_quoting/">跨版帖</a>。评论总数未找到可稳定核对值，不填数。供应商自荐、朋友转述和历史数据检索推销，不计独立付费证据。</p>
+<p>辅助调查：CNCCookbook 称调查了 <strong>100 位受访者</strong>，至少 <strong>40% 的受访者</strong>需要在没有 CAD 模型时估价；页面最后修改为 <strong>2024-03-09</strong>，实际调查年份未找到。这支持“不应强制 3D 输入”，<strong>不等于 40% 的 RFQ 是 PDF，更不证明他们要全自动定价</strong>。该站也销售估算工具，样本非随机。<a href="https://www.cnccookbook.com/job-quote-cost-estimation-survey-results/">调查</a></p>
+<p><strong>当前切口的行业平均报价工时、延迟丢单率、AI 准确率：未找到可核实统计。</strong>不沿用厂商“从小时到分钟”等宣传做收益参数。原报告中 3D 模型求助、ERP 实施抱怨和历史资料检索案例，不能补强本切口评分。</p>
+<h3 id="_7">同任务已有收费供给，成交与续费仍缺证据</h3>
+<p><strong>支持继续核验付费，尚不足以通过“成熟对标产品已验证当前切口 PMF”的门槛。</strong>以下为同任务能力声明，均未做软件实测。</p>
+<table>
+<thead>
+<tr>
+<th>同任务产品</th>
+<th>输入→输出与公开价格</th>
+<th>证明什么；还缺什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CloudNC Quote Agent</td>
+<td>官方 <strong>2026-10-13</strong> 公告：上传 <strong>2D 和/或 3D</strong>，生成工艺、工时及成本供人工确认，导出 PDF；AI 付费使用公告价 <strong>$2.50/零件</strong>，手工工作流免费。<a href="https://www.cloudnc.com/news-room/cloudnc-launches-quote-agent-to-help-machine-shops-win-more-work">官方公告</a></td>
+<td>证明独立产品和按次收费设计。当前套餐页不可读取；比较页提及的套餐金额不当一手现价。纯 2D 付费客户数、续费、该独立产品收入/融资：<strong>未找到</strong></td>
+</tr>
+<tr>
+<td>QuotedPart</td>
+<td>明确说 PDF 可在无 STEP 时估价并列假设；费率、公式及成本可改，审核后发送。<strong>$199/月/全厂，14 天无卡试用</strong>。<a href="https://quotedpart.com/">产品</a>、<a href="https://quotedpart.com/pricing">价格</a></td>
+<td>最直接的图纸独立报价对标。可线上注册及银行卡订阅；不证明有人完成付款。纯 2D 付费客户数、收入、融资和续费：<strong>未找到</strong>。不采用已过期的 $99 早鸟摘要</td>
+</tr>
+<tr>
+<td>QuoteBuddy</td>
+<td>官方工艺页明确支持 PDF/PNG/JPG→车/铣工序、费用明细和报价 PDF；展示提取值供改正。定价页显示 <strong>€149/月含 100 次</strong>、试用 <strong>30 天</strong>，之后免费额度 <strong>3 次/月</strong>。<a href="https://quotebuddy.therness.com/en/solutions/turning-milling-quotes">工艺页</a>、<a href="https://quotebuddy.therness.com/en/pricing">价格</a></td>
+<td>证明还有透明收费、图纸输入和人工复核的供给。实际付费客户数、收入、融资及续费：<strong>未找到</strong>；不将它与另一家同名 Quoter 或 Quotebeam 混淆</td>
+</tr>
+</tbody>
+</table>
+<p><strong>原生 DWG→自动机加工定价的同等直接证明：未找到。</strong>不能把“支持 CAD”“能看 DWG”当作已能纯图纸自动报价。CloudNC 仅凭官方发布稿归为同任务供给，不把母公司已有业务的 PMF 转给刚发布的独立产品。</p>
+<p><strong>相关流量：未找到可复核月访问量。</strong>本次 <a href="https://www.similarweb.com/website/quotedpart.com/">QuotedPart Similarweb</a> 与 <a href="https://www.similarweb.com/website/cloudnc.com/">CloudNC Similarweb</a> 不可读取；CloudNC 总域名即便有流量，也不能归到纯 2D 报价。厂商价格、融资、网页收录都不是收入。</p>
+<p>免费方案并未证实足够好且用户满意；也未找到证据说明按次价格已低到小团队必然无利可图。因此<strong>不因免费或低价竞争直接否决</strong>。需用同一组图纸检验新产品是否有优势。</p>
+<h3 id="seo">SEO 暂不优先：主任务没有正数信号，泛词又不能借量</h3>
+<p><strong>证据来自用户提供的 2026-10-24 PXAny 快照，不是本轮重新向供应商查询。</strong>供应商统计周期、覆盖完整度和独立复核结果未找到；它是决策线索，不是实际网站流量。<a href="https://api.pxany.com/v1/keyword-volumes">供应商入口</a></p>
+<p>语义审计后，图纸到报价的候选记录有 <strong>108 个“市场×词”</strong>：<strong>93 个供应商返回 0、11 个未返回、4 个未查询，没有返回正数</strong>。其中只说明输入较对口，仍混有买零件或查教程的意图。不得将这些状态相加成“需求为零”。完整分类在证据包 <code>keyword-audit.csv</code>，与最终 <code>serp.json</code> 同源。<a href="https://api.pxany.com/v1/keyword-volumes">数据入口</a></p>
+<table>
+<thead>
+<tr>
+<th>需求表达组</th>
+<th>返回情况</th>
+<th>能否计入主任务搜索需求</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>明确图纸/PDF/DWG 的英语核心词：<code>machining quote from PDF drawing</code>、<code>CNC 2D drawing quoting software</code>、<code>PDF drawing machining cost estimator</code>、<code>DWG machining cost estimation</code>、<code>machining cost estimation from drawings</code></td>
+<td>US/UK/CA/AU 均为<strong>供应商返回 0</strong>；已取回国别 SERP 部分样本</td>
+<td>属主任务候选；0 不是无人搜索；不报正数需求</td>
+</tr>
+<tr>
+<td>通用 <code>CNC quoting software</code> / <code>machine shop estimating software</code> / <code>machine shop quoting software</code></td>
+<td>US 分别 <strong>30/20/50</strong>；UK、CA、AU 每词各 <strong>10</strong></td>
+<td>未限定输入；<strong>不计本切口搜索量，不相加成独立买家</strong></td>
+</tr>
+<tr>
+<td>非英语泛软件核心词</td>
+<td>DE、FR、ES、NL 核心词供应商返回 <strong>0</strong>；IT <code>software preventivi lavorazioni meccaniche</code> <strong>10</strong>；JP、KR 核心词<strong>未返回</strong></td>
+<td>只能确认当地相关软件表达/供给；不借给纯 2D 切口</td>
+</tr>
+<tr>
+<td>漏进语种列表的核心词：<code>CNC quote from drawing</code>、<code>software for quoting machined parts</code></td>
+<td>四英语市场共 <strong>8 条未查询</strong>；已补普通网页搜索，国别 Google 未取得</td>
+<td>前者是图纸候选，后者泛词；不填 0、不冒充已完成国别前十</td>
+</tr>
+</tbody>
+</table>
+<p>以上数值均为快照单市场月搜索量，来源同 <a href="https://api.pxany.com/v1/keyword-volumes">PXAny</a>；证据包保留未修改原件和最终表。没有外围词达到单市场 <strong>&gt;200</strong> 门槛，故未为其补批量 SERP；核心词不因低量而跳过。</p>
+<p><strong>竞争页按同一个用户任务读，不按每个关键词分别给一份结论。</strong>US 的 <code>CNC 2D drawing quoting software</code> 快照仅 <strong>7 条</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>快照位置</th>
+<th>页面满足什么需求</th>
+<th>本次最终角色</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><a href="https://spanflug.de/en/make/quoting-turning-milling-parts/">Spanflug MAKE</a>：流程写明上传 CAD 模型及技术图纸</td>
+<td>相关平台；纯 2D 独立自动报价未证实，排除主评分</td>
+</tr>
+<tr>
+<td>2</td>
+<td><a href="https://www.paperlessparts.com/processes/cnc-machining/">Paperless Parts</a>：机加工报价平台，明确有 PDF/3D 查看器</td>
+<td>能看 PDF 不等于能从纯 PDF 自动估价，排除主评分</td>
+</tr>
+<tr>
+<td>3–4</td>
+<td><a href="https://www.amfg.ai/job-shop">AMFG</a>、<a href="https://machineresearch.com/estimating-and-quoting-software/">Machine Research</a></td>
+<td>本轮未取得足以确认同输入、同输出的完整证据，不计同任务 PMF</td>
+</tr>
+<tr>
+<td>5</td>
+<td><a href="https://www.cloudnc.com/quote-agent">CloudNC Quote Agent</a></td>
+<td>同任务供给；产品页打不开，能力由前述官方发布稿核实</td>
+</tr>
+<tr>
+<td>6</td>
+<td><a href="https://www.dashnode.ai/blog/cnc-quoting-software">Dashnode 博客</a></td>
+<td>内容页；不能据其入榜算一个同任务 SaaS</td>
+</tr>
+<tr>
+<td>7</td>
+<td><a href="https://gearsolutions.com/news/intuitive-drawing-software-simplifies-2d-path-design-for-cnc-users/">Gear Solutions</a></td>
+<td>2D 刀路设计文章，排除</td>
+</tr>
+</tbody>
+</table>
+<p>这是供应商返回的部分样本，不能称“Google 完整前十只有一个竞品”。UK/CA/AU 同词分别只有 <strong>8/7/7 条</strong>；本轮普通网页检索另找到 QuotedPart、QuoteBuddy，不能给它们补造国别排名。<a href="https://www.google.com/search?q=CNC+2D+drawing+quoting+software&amp;gl=us&amp;hl=en&amp;num=10">国别复查入口</a>，快照见证据包。</p>
+<p><strong>域名年龄只观察，不给 SEO 加分。</strong>例如快照把 Dashnode 注册日记为 <strong>2025-07-24</strong>，但此处是博客页；<code>machining quote from PDF drawing</code> 下的年轻域名 <a href="https://www.sincere-machining.com/cnc-machining-quote-from-your-cad-files/">Sincere Machining</a> 是零件服务页，也不证明报价 SaaS 容易进入。日期来自快照 RDAP，独立复核未成功。<a href="https://rdap.org/domain/dashnode.ai">RDAP 复查入口</a></p>
+<h3 id="_8">可以远程交付，难点在工艺与服务成本</h3>
+<p><strong>技术路径存在，尚未找到已被竞品遗漏、又能由小团队稳定交付的明确缝隙。</strong>“便宜、支持 PDF、按本厂费率、人工确认”已是直接竞品公开能力，不作为差异化。</p>
+<p>可试的窄假设是：选一种本团队能理解的零件族，让<strong>读图来源、装夹/工序假设、不能确定的项目</strong>更容易核对，减少净复核时间。依据是从业者对错误报价的担忧；但现有竞品也在展示可编辑假设和工序，优势必须同题实测，不能靠文案断言。<a href="https://www.reddit.com/r/Machinists/comments/1vzvjh8/hows_your_experience_with_automated_quoting_tools/">用户反证</a>、<a href="https://quotebuddy.therness.com/en/solutions/turning-milling-quotes">现有工艺明细</a></p>
+<p>AI 越强，读材料、公差、孔和备注可能越好；仍不能单靠图纸知道每家工厂的装夹、机床能力与外协实际价格。【研究判断】合适架构是 <strong>AI 提取＋确定性成本规则＋人工确认</strong>，不是让语言模型直接输出价格。QuotedPart FAQ 公开采用 Claude 读图、费率公式定价，说明基础读图能力可购买，也说明简单包装缺乏壁垒。<a href="https://quotedpart.com/">产品 FAQ</a></p>
+<p>作为上游能力，Werk24 公布按量 <strong>€1.25/页</strong>；这是读图，不是最终报价。按一页一件的测试假设，<strong>100 件的提取费为 €125</strong>，尚未包括重试、模型、存储和支持；不能未经成本核算就卖低价不限量。<a href="https://www.werk24.io/pricing">官方价格</a>。本团队实际成本、错误率和毛利未找到，需试验。</p>
+<p>中国团队可通过网页试用、远程配置费率与订阅成交；QuotedPart 有线上注册/支付路径，可证实这种产品形态支持远程购买。<a href="https://quotedpart.com/pricing">支付说明</a>。先验证愿意提供合规可用、非受限图纸的一般工业客户；若目标客户要求本地驻场或本团队无法提供的数据访问条件，则不属于本次可服务客群。</p>
+<p>市场分母仅作背景：Census 官方搜索页显示 Machine shops <strong>17,156 个有雇员营业场所</strong>；本轮未核实该显示值的统计年份，不能直接称最新 CNC 工厂数量。场所也不是独立 SaaS 账户，纯图纸询价占比、可付费比例和全球同口径数量<strong>未找到</strong>，不据此推 SAM（可服务市场）。<a href="https://data.census.gov/all?q=332710">Census</a></p>
+<h3 id="_9">最小验证与停止条件</h3>
+<p>下表全部是<strong>拟议试验和阈值，未发生招募、收费或产品实测</strong>。先测产品价值，再测 SEO。</p>
+<table>
+<thead>
+<tr>
+<th>验证项</th>
+<th>最小动作及通过条件【建议】</th>
+<th>停止/不升级条件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>同任务可交付</td>
+<td>5 家各提供 20 份已完成订单图纸：一半校准，一半留出测试；对照真实装夹/加工工时、材料、检验与外协成本，不能只对齐历史售价。与人工/现有软件比较，<strong>计入核对、修正、导出</strong>后，中位耗时至少减少 50%</td>
+<td>出现未标出的关键材料、单位、数量、公差或外协漏项，先停该类自动报价；样本无错也不推为行业准确率。不能净省时或必须创始人逐单代报价，则不升级</td>
+</tr>
+<tr>
+<td><strong>首付</strong></td>
+<td>10 家合格用户中至少 3 家实际支付首月 $99，范围先限 PDF 常规件；价格与用量包明示。与 CloudNC、QuotedPart、QuoteBuddy 做相同图纸试用比较</td>
+<td>只有“愿意试”、免费注册或口头承诺，不算首付；无人愿付则暂停开发</td>
+</tr>
+<tr>
+<td><strong>复用</strong></td>
+<td>首付用户中至少 3 家，在两个不同周主动处理合计至少 5 份<strong>新的真实询价</strong>；记录修改及最终发出的报价</td>
+<td>只跑历史演示、同件重算或创始人催用，不算复用；套餐内再用不算再次付费</td>
+</tr>
+<tr>
+<td><strong>续费</strong></td>
+<td>到下一月计费周期，首付用户中至少 2 家实际支付第二月，核实无退款并继续使用</td>
+<td>尚未到期就写“待观察”；取消/不再使用则复盘。若改按次收费，另看第二个独立订单再次付款，不叫月续费</td>
+</tr>
+<tr>
+<td>小团队经济性</td>
+<td>首次配置每厂不超过 1 小时；稳定后月支持不超过 30 分钟/厂；把支持人工、解析与重试算入后，目标贡献毛利至少 70%</td>
+<td>依赖驻场、长期专人校准或每份人工审图才能履约，退出当前小团队 SaaS 方案</td>
+</tr>
+<tr>
+<td>SEO 获客</td>
+<td>产品验证通过后，只做图纸报价产品页和真实示例页；观察 8 周，目标从 Google 自然搜索获得至少 5 个合格演示申请及 1 个首付</td>
+<td>未收录/曝光不足不能推断需求假；维持“SEO 未验证”，不扩多语言页面。只来采购零件、学习公式或索取免费代报价的访客，不算软件线索</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_10">附录：评分、审计、词表与用时</h2>
+<h3 id="100">综合评分（满分 100）</h3>
+<p>按五项等权折算：<code>(4＋2＋2＋2＋2) ÷ 25 × 100 = 48 分</code>。【研究判断】不是概率或收入预测；<strong>不包含 SEO 评分，也没有因竞品数量扣分</strong>。付费项未过门槛，不能用总分覆盖“当前切口 PMF 未证实”。原报告无数值原分，修正幅度未找到。</p>
+<h3 id="_11">国家/搜索量审计</h3>
+<p>原始 <strong>536 个市场×词、374 个去重字符串</strong>；原始核心 SERP <strong>79 组</strong>，均少于完整前十：<strong>7 条×14 组、8 条×36 组、9 条×29 组</strong>。其中 <strong>10 组</strong>明显跑题，最终标记异常；不是“竞争小”。另补记漏词 <strong>8 条未查询</strong>，最终判定表共 <strong>544 条</strong>。数量均由用户提供快照计算，原件、计算脚本和 CSV 保留。<a href="https://api.pxany.com/v1/keyword-volumes">搜索量入口</a>、<a href="https://api.pxany.com/v1/serp">SERP 供应商入口</a></p>
+<table>
+<thead>
+<tr>
+<th>市场/查询语言</th>
+<th style="text-align: right;">原记录数</th>
+<th style="text-align: right;">返回正数</th>
+<th style="text-align: right;">供应商返回 0</th>
+<th style="text-align: right;">未返回</th>
+<th style="text-align: right;">补记未查询</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>US/en</td>
+<td style="text-align: right;">54</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">47</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr>
+<td>UK/en</td>
+<td style="text-align: right;">54</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">47</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr>
+<td>CA/en</td>
+<td style="text-align: right;">54</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">47</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr>
+<td>AU/en</td>
+<td style="text-align: right;">54</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">47</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr>
+<td>DE/de</td>
+<td style="text-align: right;">47</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">45</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td>FR/fr</td>
+<td style="text-align: right;">46</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">39</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td>ES/es</td>
+<td style="text-align: right;">49</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">49</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td>IT/it</td>
+<td style="text-align: right;">44</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">42</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td>NL/nl</td>
+<td style="text-align: right;">45</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">44</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td>JP/ja</td>
+<td style="text-align: right;">45</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">45</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td>KR/ko</td>
+<td style="text-align: right;">44</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">19</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td>合计</td>
+<td style="text-align: right;"><strong>536</strong></td>
+<td style="text-align: right;"><strong>35</strong></td>
+<td style="text-align: right;"><strong>426</strong></td>
+<td style="text-align: right;"><strong>75</strong></td>
+<td style="text-align: right;"><strong>8</strong></td>
+</tr>
+</tbody>
+</table>
+<p>表内是<strong>采集覆盖与状态数，不是市场大小</strong>；全部基于上述快照。尤其 JP 未返回，不能并入“供应商返回 0”。补普通网页搜索不改变未查询搜索量状态。</p>
+<table>
+<thead>
+<tr>
+<th>本地表达示例</th>
+<th>本市场返回情况</th>
+<th>任务边界</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DE：<code>CNC Kalkulation aus 2D Zeichnung</code></td>
+<td>供应商返回 0</td>
+<td>图纸到报价候选</td>
+</tr>
+<tr>
+<td>FR：<code>chiffrage usinage plan PDF</code></td>
+<td>供应商返回 0</td>
+<td>图纸到报价候选</td>
+</tr>
+<tr>
+<td>ES：<code>cotización mecanizado plano 2D</code></td>
+<td>供应商返回 0</td>
+<td>图纸到报价候选；西班牙市场，不借拉美需求</td>
+</tr>
+<tr>
+<td>IT：<code>preventivazione lavorazioni da disegno 2D</code></td>
+<td>供应商返回 0</td>
+<td>图纸到报价候选</td>
+</tr>
+<tr>
+<td>NL：<code>CNC calculatie PDF tekening</code></td>
+<td>供应商返回 0</td>
+<td>图纸到报价候选</td>
+</tr>
+<tr>
+<td>JP：<code>2次元図面 機械加工 自動見積</code></td>
+<td>未返回</td>
+<td>数据缺口</td>
+</tr>
+<tr>
+<td>KR：<code>2D 도면 기계가공 자동 견적</code></td>
+<td>未返回</td>
+<td>数据缺口</td>
+</tr>
+</tbody>
+</table>
+<p>示例数据来源同 <a href="https://api.pxany.com/v1/keyword-volumes">PXAny</a>；本地具体表达多为扩词假设，不声称已证实是用户常用搜索语。完整语种词表及逐词剔除理由在证据包。</p>
+<h3 id="_12">相邻机会：只列，不贡献搜索量、付费或竞争分</h3>
+<ul>
+<li>STEP/3D 模型自动报价、DFM（可制造性检查）与 CAM（数控加工编程）：<a href="https://www.toolpath.com/product">Toolpath</a>、<a href="https://spanflug.de/en/make/quoting-turning-milling-parts/">Spanflug</a>。</li>
+<li>ERP、生产排程、订单管理及宽报价平台：<a href="https://proshoperp.com/">ProShop</a>、<a href="https://www.ecisolutions.com/products/jobboss2/">JobBOSS²</a>、<a href="https://www.paperlessparts.com/processes/cnc-machining/">Paperless Parts</a>。</li>
+<li>图纸提取、检索旧报价、RFQ 收件分流：<a href="https://www.werk24.io/">Werk24</a>、<a href="https://caddi.com/en-us/platform/caddi-quote/">CADDi</a>。Werk24 仅用于解释上游实现成本，不证明本切口有人付费。</li>
+<li>工时/小时费率计算器、报价单 PDF 排版、钣金/激光切割报价、采购零件的平台：<a href="https://www.xometry.com/how-xometry-works/">Xometry</a>。输入或输出不一致，全部排除主评分；需要工厂履约的采购词不作软件 SEO 机会。</li>
+</ul>
+<h3 id="_13">方法与限制</h3>
+<ul>
+<li><strong>Reddit</strong>：先选 r/CNCmachining，窗口 2026-04-24 至研究日；<a href="https://arctic-shift.photon-reddit.com/api/posts/search?subreddit=CNCmachining&amp;after=2026-04-24&amp;before=2026-10-25&amp;limit=100&amp;sort=asc">Arctic Shift 请求</a> 首次及间隔后重试均 DNS 失败，网页工具也无法访问，故没有取得半年全量、分页或总体痛点频次。按方法回退定向搜索 r/Machinists/r/CNC；仅报告可逐条核实的个案与热度，不报行业比例。</li>
+<li><strong>SERP 质量</strong>：异常例为 US <code>PDF drawing machining cost estimator</code> 返回税务/风险计算器，US <code>DWG machining cost estimation</code> 返回通用“estimation”，以及部分国家的泛 CNC/quote/software 结果。原样保留，最终判定注明异常；未猜测这是 Google 改写还是供应商问题。</li>
+<li><strong>入口与原报告修正</strong>：专员原分未找到；通用报价付费、3D 模型求助、制造交易额均不替纯 2D PMF；旧域名标签只保存在原始层。当前正文、<code>serp.md</code>、<code>serp.json</code> 和 <code>keyword-audit.csv</code> 采用同一最终判定；没有另行发布报告网页。</li>
+<li><strong>访问与重试</strong>：执行环境对 PXAny、Arctic Shift、QuotedPart 的 DNS 均失败，公开页改用网页工具；没有重跑原批量脚本。CloudNC 产品/价格页重试仍不可读，保留官方发布稿价格日期。RDAP 独立复核失败；未找到 DR 足以说明竞争易度的证据。</li>
+<li><strong>证据包</strong>：含报告、原/最终 SERP、逐词 CSV、原词表、网页工具提取记录、失败日志、处理脚本、SOP/标准/方法及需求来源副本。公开证据入口就是正文所链厂商页、原帖和供应商接口；网页提取不是软件实测。</li>
+</ul>
+<h3 id="_14">用时</h3>
+<p>本轮深挖与交付：2026-10-24 20:36:19 至 2026-10-24 21:01:32（中国标准时间），约 <strong>25 分 13 秒</strong>。按本轮起止时间实测，含读材料、联网核验、审计、写作及打包；不是产品开发工时。</p>
+<p>继承批次日志：扩词 19:48:41–19:52:21（<strong>3 分 40 秒</strong>）；SERP 19:52:21–20:36:11（<strong>43 分 50 秒</strong>）；本轮开始前间隔 <strong>8 秒</strong>。从批次开始至上述完成时点共约 <strong>72 分 51 秒</strong>。继承阶段不冒充本轮重新执行，打包内附原计时记录。</p></section><section id="sop-criteria"><h2 class="sec">sop-criteria.md</h2><p>【对齐需求发掘专员的筛选标准——这是本次调查的核心依据】
+其打分 5 项（各 1–5）：①需求真实 ②付费意愿 ③好服务（用户非专业、要求不高；不限 B 端，C 端也可以，B 端小老板只是加分；专业挑剔或出错要担大责任的扣分）④小团队做得动 ⑤形态简单（表单类）；①或②&lt;3 不推荐。原则：AI 时代赋能（AI 越强产品越好，用户不会因有 AI 就不用）；门槛：对标产品已验证 PMF——且 PMF 必须对得上<strong>当前切口</strong>，大品类有人付费不能直接证明这个小功能有人另付钱。
+初步报告须先钉死：谁、输入、输出、单一用户任务；相邻机会拆开，不混进同一条五项打分。</p>
+<p>你的任务是逐项核实/推翻它给的分数和证据，而不是另起一套标准：
+- 关卡1 核①：逐页打开原帖核对原话和日期（近半年优先），给出你核实后的分数。
+- 关卡2 核②+PMF：官网核实竞品价格、客户数、融资、流量；"有成熟对标产品在收钱"是通过信号，不是否决理由——但必须是当前切口的对标，不是相邻大品类。
+- 关卡3 核③④⑤+切入可行性：不要因为"已有竞品/低价竞品"就止损。只在以下情况止损：免费方案已足够好且用户满意、或头部产品价格已低到小团队无利可图、或差评里找不到任何可切入缺口、或研发/合规负担超出小团队。要明确写出小团队可切的缝隙及证据。
+- 关卡4 市场体量，关卡5 核"AI 时代赋能"是否成立。
+报告开头列一张表：5 项"专员原分 / 核实后分 / 关键证据"；首屏另给三维决策（需求／独立收费／SEO 优先级），总分可放附录。</p></section><section id="sop-v3"><h2 class="sec">sop-v3.md</h2><p>【入口铁律】新赛道必须先有需求发掘专员的初步报告与五项打分，再进入本 SOP 深挖。用户口头点题也先转需求发掘专员，禁止未经初步直接扩词/SERP/写报告。</p>
+<p>你是赛道深度调查员。需求来源报告：<strong>SRC</strong>。中文，精炼。每个数据附来源链接，查不到写"未找到"，严禁编造。
+核心原则：有竞品不是否决理由。竞品赚钱多说明市场被验证，做老二也可以。我们主打 SEO。
+团队在中国做出海：只做能远程成交的软件/SaaS 获客，不做必须本地履约的服务需求。</p>
+<p>【先钉死研究对象】报告开头必须固定：谁、输入是什么、输出是什么、本次只判断哪一个用户任务。
+- 相邻机会（相近但输入/输出不同）只列表，不贡献搜索量、付费证明或竞争评分。
+- 例：播客转文字 ≠ 已有文字稿→发布素材 ≠ 播客内容搜索，必须拆开。
+- 第一行一句话定位仍要写："这个产品帮助【什么人】，在【什么场景】下，解决【什么问题】。"标题用直白话，术语首次出现要解释。</p>
+<p>【第一步：核实赛道】确认需求真假（专员数据、原帖、竞品价格/客户数、Reddit Arctic Shift）。只有需求假或无人付费才停。用户原声要写清：什么用户、原话、抱怨的是哪一步、是否提过现用工具和付费。</p>
+<p>【第二步：调查关键词】
+1. <strong>按用户任务覆盖，不硬凑数量</strong>：先围绕已明确的用户任务找核心词、同义表达、具体场景词；确认相关后再扩市场。初筛可从几十个高相关词开始，不设「每种语言约 300」硬指标。
+2. 每个词都要能回答：搜这个词的人进入我们计划做的页面，能不能直接得到他想要的结果？不能 → 移到相邻机会或排除记录，不能因词里有同类行业词就硬套。
+3. 市场（只保留主要发达市场）：US、UK、CA、AU、DE、FR、ES、IT、NL、JP、KR。各国用当地语言查 Google 月搜索量。英语 en.txt 共用四英语市场；de/fr/es/it/nl/ja/ko 各自本地说法扩词。
+4. <strong>SERP 规则（2026-10-24 改）</strong>：
+   - <strong>核心需求词</strong>：无论月搜高低，都查实际搜索结果（确认意图、直接竞品、预期功能）。低量只影响 SEO 优先级，不能成为「不理解这个需求」的理由。
+   - <strong>外围扩展词</strong>：再用「该市场月搜 &gt; 200」控制调查成本；≤200 只记量。
+5. <strong>出海筛选（标配）</strong>：即使月搜&gt;200，若该词是「只有本地成交才能变现」的当地服务需求，也直接跳过 SERP，只记量并标注「本地服务跳过」。（保留找软件/系统/SaaS 的词。）
+6. <strong>搜索量记录</strong>：分清「返回正数 / 供应商返回 0 / 未返回 / 未查询」。没有查到数值，不能写成「未找到≤200」。</p>
+<p>【第三步：研究竞争格局】
+- <strong>按用户任务分组</strong>，再比较不同国家表现。同一任务的多种搜索表达合成一个需求组，不要「每个市场×关键词各写一套赛道结论」。
+- 用该国 Google 看前十；域名注册年龄保留为证据：<strong>近1年或近18个月≥2个、近18个月1个</strong> 仅标为观察线索（「样本中有年轻域名入榜，值得继续查」），<strong>不得直接升级为「新手友好／容易做」</strong>。还要看排名页满足什么需求、功能特点、有无可比小站、我们能否交付。DR 仅参考。样本不足完整前十时，必须写明样本条数，不得下满额结论。
+- 意图是否对口；该词头部/中小玩家与切入点。
+- 正文、serp.json、公开页必须读同一份<strong>最终判定表</strong>；旧标签可留在原始数据，但不得被后续汇总当最终结论。</p>
+<p>【第四步：投入产出与结论】
+- <strong>首屏三维决策</strong>（先于总分）：①有没有相关需求？②当前切口能否独立收费（待验证／已证明）？③适不适合优先靠 SEO 做站？
+- 总分满分 100 可留作内部筛选记录，放附录；五项评分里若未直接评 SEO 获客可行性，不要用总分冒充 SEO 优先级。
+- 验证指标必须分开：<strong>首付、复用、续费</strong>。月订阅看首付+使用、到续订周期再看续费；按次收费才看「第二单是否再买」。不要把套餐内再用当成再付。
+- 写清最小验证动作与停止条件；记录用时。</p>
+<p>【报告结构三层】
+1. 一分钟看懂：研究哪个需求、当前建议、最关键支持/反对理由、哪个未知会改决定、下一步验证。
+2. 判断依据：场景与问题 → 现有解法与痛点 → 需求证据与反证 → 能承接的词与直接竞品 → 最小验证与停止条件。每节先结论再少量证据；每条重要证据说明支持什么、不能证明什么。
+3. 可展开证据与方法：完整国家/词表、剔除词及原因、旧评分修正、域名核验、DNS/重试/计时、SOP 与原始文件。影响决策的限制（如某国数据缺失）须留在正文，细节日志可附录。</p>
+<p>【验收】看完首屏应能说清：谁要什么、我们交付什么、有什么证据、为什么值得或不值得继续、下一步验证什么。说不清就继续改；关键词数量和报告长度不算完成标准。</p>
+<p>serp.py：准备 kw 目录（en.txt/de.txt/…），然后
+  python3 /workspace/research/serp.py <kw目录> &lt;输出目录&gt;
+核心词清单可单独标记，脚本侧逐步支持「核心词无视 200 门槛」；在脚本未改完前，人工保证核心词必做 SERP。</p>
+<p>【交付】报告里只写 https 外链；不要写 /workspace 本机路径。证据文件打进同名 zip，附件发 zip，并附公开网页链接。每个核心结论要有可打开的证据入口。</p></section><section id="files"><h2 class="sec">证据文件（原始数据）</h2><ul><li><a href="CNC 2D图纸自动报价-48分.md">CNC 2D图纸自动报价-48分.md</a> (25 KB)</li><li><a href="kw/core.txt">kw/core.txt</a> (0 KB)</li><li><a href="kw/de.txt">kw/de.txt</a> (1 KB)</li><li><a href="kw/en.txt">kw/en.txt</a> (1 KB)</li><li><a href="kw/es.txt">kw/es.txt</a> (1 KB)</li><li><a href="kw/fr.txt">kw/fr.txt</a> (1 KB)</li><li><a href="kw/it.txt">kw/it.txt</a> (1 KB)</li><li><a href="kw/ja.txt">kw/ja.txt</a> (1 KB)</li><li><a href="kw/ko.txt">kw/ko.txt</a> (1 KB)</li><li><a href="kw/nl.txt">kw/nl.txt</a> (1 KB)</li><li><a href="report.md">report.md</a> (25 KB)</li><li><a href="serp.json">serp.json</a> (1009 KB)</li><li><a href="serp.md">serp.md</a> (269 KB)</li><li><a href="sop-criteria.md">sop-criteria.md</a> (1 KB)</li><li><a href="sop-v3.md">sop-v3.md</a> (5 KB)</li><li><a href="timing.txt">timing.txt</a> (0 KB)</li></ul></section></div></body></html>

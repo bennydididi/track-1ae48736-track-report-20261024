@@ -1,0 +1,10 @@
+start 2026-10-24 19:48:41 CST
+slug cnc-2d-quote
+name CNC 2D图纸自动报价
+kw expand attempt 1 2026-10-24 19:48:41 CST
+kw expand done 2026-10-24 19:52:21 CST
+serp start 2026-10-24 19:52:21 CST
+serp done ec=0 2026-10-24 20:36:11 CST
+report start 2026-10-24 20:36:11 CST
+report end 2026-10-24 21:02:40 CST 用时 26 分钟
+done cnc-2d-quote 2026-10-24 21:02:40 CST
